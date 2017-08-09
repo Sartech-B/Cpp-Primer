@@ -7,26 +7,28 @@
 
 #include "ex7_12.h"
 
+using namespace std;
+
 int main()
 {
-    Sales_data total(std::cin);
+    Sales_data total(cin);
     if (!total.isbn().empty())
     {
-        std::istream &is = std::cin;
+        istream &is = cin;
         while (is) {
             Sales_data trans(is);
             if (total.isbn() == trans.isbn())
                 total.combine(trans);
             else {
-                print(std::cout, total) << std::endl;
+                print(cout, total) << endl;
                 total = trans;
             }
         }
-        print(std::cout, total) << std::endl;
+        print(cout, total) << endl;
     }
     else
     {
-        std::cerr << "No data?!" << std::endl;
+        cerr << "No data?!" << endl;
         return -1;
     }
     
